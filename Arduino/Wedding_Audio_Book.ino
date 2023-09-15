@@ -29,7 +29,7 @@ File frec;
 enum Mode {Initialising, Ready, Prompting, Recording};
 Mode mode = Mode::Initialising;
 
-float beep_volume_low = 0.1f; // Lower volume for when receiver is on ear
+float beep_volume_low = 0.2f; // Lower volume for when receiver is on ear
 float beep_volume = 1.0f;
 
 uint32_t MTPcheckInterval; // default value of device check interval [ms]
@@ -121,7 +121,8 @@ void setup(){
   while (!playWav1.isStopped()) {
     // Wait until file is done playing before continuing
   }
-  mixer.gain(0, 0.3f);
+  // Speaker volume
+  mixer.gain(0, 0.20f);
 
   // mandatory to begin the MTP session.
   MTP.begin();
